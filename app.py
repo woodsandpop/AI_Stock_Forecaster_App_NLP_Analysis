@@ -72,74 +72,74 @@ if company_name != '':
         st.write("exception occurred:" + str(e))
         st.write('Looks like, there is some error in retrieving the data, Please try again or try with a different ticker.' )
 
-    
- def percentage(part,whole):
-    return 100 * float(part)/float(whole)
+        
+    def percentage(part,whole):
+        return 100 * float(part)/float(whole)
 
-#Assigning Initial Values
-positive = 0
-negative = 0
-neutral = 0
-#Creating empty lists
-news_list = []
-neutral_list = []
-negative_list = []
-positive_list = []
+    #Assigning Initial Values
+    positive = 0
+    negative = 0
+    neutral = 0
+    #Creating empty lists
+    news_list = []
+    neutral_list = []
+    negative_list = []
+    positive_list = []
 
-#Iterating over the tweets in the dataframe
-for news in news_df['Summary']:
-    news_list.append(news)
-    analyzer = SentimentIntensityAnalyzer().polarity_scores(news)
-    neg = analyzer['neg']
-    neu = analyzer['neu']
-    pos = analyzer['pos']
-    comp = analyzer['compound']
+    #Iterating over the tweets in the dataframe
+    for news in news_df['Summary']:
+        news_list.append(news)
+        analyzer = SentimentIntensityAnalyzer().polarity_scores(news)
+        neg = analyzer['neg']
+        neu = analyzer['neu']
+        pos = analyzer['pos']
+        comp = analyzer['compound']
 
-    if neg > pos:
-        negative_list.append(news) #appending the news that satisfies this condition
-        negative += 1 #increasing the count by 1
-    elif pos > neg:
-        positive_list.append(news) #appending the news that satisfies this condition
-        positive += 1 #increasing the count by 1
-    elif pos == neg:
-        neutral_list.append(news) #appending the news that satisfies this condition
-        neutral += 1 #increasing the count by 1 
+        if neg > pos:
+            negative_list.append(news) #appending the news that satisfies this condition
+            negative += 1 #increasing the count by 1
+        elif pos > neg:
+            positive_list.append(news) #appending the news that satisfies this condition
+            positive += 1 #increasing the count by 1
+        elif pos == neg:
+            neutral_list.append(news) #appending the news that satisfies this condition
+            neutral += 1 #increasing the count by 1 
 
-positive = percentage(positive, len(news_df)) #percentage is the function defined above
-negative = percentage(negative, len(news_df))
-neutral = percentage(neutral, len(news_df))
+    positive = percentage(positive, len(news_df)) #percentage is the function defined above
+    negative = percentage(negative, len(news_df))
+    neutral = percentage(neutral, len(news_df))
 
-#Converting lists to pandas dataframe
-news_list = pd.DataFrame(news_list)
-neutral_list = pd.DataFrame(neutral_list)
-negative_list = pd.DataFrame(negative_list)
-positive_list = pd.DataFrame(positive_list)
-#using len(length) function for counting
-print("Positive Sentiment:", '%.2f' % len(positive_list), end='\n')
-print("Neutral Sentiment:", '%.2f' % len(neutral_list), end='\n')
-print("Negative Sentiment:", '%.2f' % len(negative_list), end='\n')
+    #Converting lists to pandas dataframe
+    news_list = pd.DataFrame(news_list)
+    neutral_list = pd.DataFrame(neutral_list)
+    negative_list = pd.DataFrame(negative_list)
+    positive_list = pd.DataFrame(positive_list)
+    #using len(length) function for counting
+    st.write("Positive Sentiment:", '%.2f' % len(positive_list), end='\n')
+    st.write("Neutral Sentiment:", '%.2f' % len(neutral_list), end='\n')
+    st.write("Negative Sentiment:", '%.2f' % len(negative_list), end='\n')
 
-#Creating PieCart
-labels = ['Positive ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
-sizes = [positive, neutral, negative]
-colors = ['yellowgreen', 'blue','red']
-patches, texts = plt.pie(sizes,colors=colors, startangle=90)
-plt.style.use('default')
-plt.legend(labels)
-plt.title("Sentiment Analysis Result for stock= "+company_name+"" )
-plt.axis('equal')
-plt.show()
+    #Creating PieCart
+    labels = ['Positive ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
+    sizes = [positive, neutral, negative]
+    colors = ['yellowgreen', 'blue','red']
+    patches, texts = plt.pie(sizes,colors=colors, startangle=90)
+    plt.style.use('default')
+    plt.legend(labels)
+    plt.title("Sentiment Analysis Result for stock= "+company_name+"" )
+    plt.axis('equal')
+    st.plt.show()
 
-# Word cloud visualization
-def word_cloud(text):
-    stopwords = set(STOPWORDS)
-    allWords = ' '.join([nws for nws in text])
-    wordCloud = WordCloud(background_color='black',width = 1600, height = 800,stopwords = stopwords,min_font_size = 20,max_font_size=150,colormap='prism').generate(allWords)
-    fig, ax = plt.subplots(figsize=(20,10), facecolor='k')
-    plt.imshow(wordCloud)
-    ax.axis("off")
-    fig.tight_layout(pad=0)
-    plt.show()
+    # Word cloud visualization
+    def word_cloud(text):
+        stopwords = set(STOPWORDS)
+        allWords = ' '.join([nws for nws in text])
+        wordCloud = WordCloud(background_color='black',width = 1600, height = 800,stopwords = stopwords,min_font_size = 20,max_font_size=150,colormap='prism').generate(allWords)
+        fig, ax = plt.subplots(figsize=(20,10), facecolor='k')
+        plt.imshow(wordCloud)
+        ax.axis("off")
+        fig.tight_layout(pad=0)
+        st.plt.show()
 
-print('Wordcloud for ' + company_name)
-word_cloud(news_df['Summary'].values)
+    st.write('Wordcloud for ' + company_name)
+    word_cloud(news_df['Summary'].values)
