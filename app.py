@@ -27,13 +27,12 @@ st.image("logo.jpeg", width = 600)
 st.title('Woods and Pop Ltd')
 st.header('🔎AI Stock Forecaster App')
 st.subheader("NLP Analysis of the selected Stock based on Latest News Articles")
-
 # save the company name in a variable
 company_name = st.text_input("Please provide the name of the Company: ")
+
 #As long as the company name is valid not empty...
 if company_name != '':
     st.write(f'Searching for and analyzing {company_name}, Please be patient, it might take a while...')
-
     #Extract News with Google News
     googlenews = GoogleNews(start=yesterday,end=now)
     googlenews.search(company_name)
