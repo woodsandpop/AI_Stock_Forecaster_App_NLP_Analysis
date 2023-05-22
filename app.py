@@ -31,7 +31,7 @@ st.header('🔎AI Stock Forecaster App')
 st.subheader("NLP Analysis of the selected Stock using Stock articles")
 
 # save the company name in a variable
-company_name = st.input("Please provide the name of the Company: ")
+company_name = st.text_input("Please provide the name of the Company: ")
 #As long as the company name is valid, not empty...
 if company_name != '':
     print(f'Searching for and analyzing {company_name}, Please be patient, it might take a while...')
