@@ -40,7 +40,7 @@ if company_name != '':
     result = googlenews.result()
     #store the results
     df = pd.DataFrame(result)
-    # print(df)
+    st.write(df)
 
     try:
         list =[] #creating an empty list 
