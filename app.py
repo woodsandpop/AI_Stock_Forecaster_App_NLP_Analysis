@@ -40,7 +40,7 @@ if company_name != '':
     result = googlenews.result()
     #store the results
     df = pd.DataFrame(result)
-    st.write(df)
+    st.write(df.tail())
 
     try:
         list =[] #creating an empty list 
@@ -65,7 +65,7 @@ if company_name != '':
         # print(check_empty)
         if check_empty == False:
           news_df=pd.DataFrame(list) #creating dataframe
-          st.write(news_df)
+          st.write(news_df.tail())
 
     except Exception as e:
         #exception handling
