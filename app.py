@@ -69,7 +69,7 @@ if company_name != '':
     except Exception as e:
         #exception handling
         st.write("exception occurred:" + str(e))
-        st.write('Looks like, there is some error in retrieving the data, Please try again or try with a different ticker.' )
+        st.write('Looks like, there is some error in retrieving the data, Please try again or try with a different company.' )
 
         
     def percentage(part,whole):
