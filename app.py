@@ -21,6 +21,13 @@ config = Config()
 config.browser_user_agent = user_agent
 config.request_timeout = 10
 
+# Streamlit Dashboard          
+st.set_page_config(page_title ="Woods and Pop Ltd", page_icon =":guardsman:", layout ="centered")
+st.image("logo.jpeg", width = 600)
+st.title('Woods and Pop Ltd')
+st.header('🔎AI Stock Forecaster App')
+st.subheader("Historical Data Analysis of the selected Stock")
+
 # save the company name in a variable
 company_name = st.text_input("Please provide the name of the Company or a Ticker: ")
 #As long as the company name is valid not empty...
