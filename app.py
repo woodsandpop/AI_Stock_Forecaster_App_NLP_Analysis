@@ -94,7 +94,6 @@ if company_name != '':
         neu = analyzer['neu']
         pos = analyzer['pos']
         comp = analyzer['compound']
-
         if neg > pos:
             negative_list.append(news) #appending the news that satisfies this condition
             negative += 1 #increasing the count by 1
