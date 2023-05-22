@@ -34,7 +34,7 @@ st.subheader("NLP Analysis of the selected Stock using Stock articles")
 company_name = st.text_input("Please provide the name of the Company: ")
 #As long as the company name is valid, not empty...
 if company_name != '':
-    print(f'Searching for and analyzing {company_name}, Please be patient, it might take a while...')
+    st.write(f'Searching for and analyzing {company_name}, Please be patient, it might take a while...')
 
     #Extract News with Google News
     googlenews = GoogleNews(start=yesterday,end=now)
