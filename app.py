@@ -44,7 +44,7 @@ if company_name != '':
     df = pd.DataFrame(result)
     st.write(df)
 
- try:
+try:
     list =[] #creating an empty list 
     for i in df.index:
         dict = {} #creating an empty dictionary to append an article in every single iteration
