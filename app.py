@@ -81,38 +81,38 @@ if company_name != '':
     negative_list = []
     positive_list = []
 
-    # Iterating over the tweets in the dataframe
-    for news in news_df['Summary']:
-        news_list.append(news)
-        analyzer = SentimentIntensityAnalyzer().polarity_scores(news)
-        neg = analyzer['neg']
-        neu = analyzer['neu']
-        pos = analyzer['pos']
-        comp = analyzer['compound']
+        # Iterating over the tweets in the dataframe
+        for news in news_df['Summary']:
+            news_list.append(news)
+            analyzer = SentimentIntensityAnalyzer().polarity_scores(news)
+            neg = analyzer['neg']
+            neu = analyzer['neu']
+            pos = analyzer['pos']
+            comp = analyzer['compound']
 
-        if neg > pos:
-            negative_list.append(news)  # appending the news that satisfies this condition
-            negative += 1  # increasing the count by 1
-        elif pos > neg:
-            positive_list.append(news)  # appending the news that satisfies this condition
-            positive += 1  # increasing the count by 1
-        elif pos == neg:
-            neutral_list.append(news)  # appending the news that satisfies this condition
-            neutral += 1  # increasing the count by 1
+            if neg > pos:
+                negative_list.append(news)  # appending the news that satisfies this condition
+                negative += 1  # increasing the count by 1
+            elif pos > neg:
+                positive_list.append(news)  # appending the news that satisfies this condition
+                positive += 1  # increasing the count by 1
+            elif pos == neg:
+                neutral_list.append(news)  # appending the news that satisfies this condition
+                neutral += 1  # increasing the count by 1
 
-    positive = percentage(positive, len(news_df))  # percentage is the function defined above
-    negative = percentage(negative, len(news_df))
-    neutral = percentage(neutral, len(news_df))
+        positive = percentage(positive, len(news_df))  # percentage is the function defined above
+        negative = percentage(negative, len(news_df))
+        neutral = percentage(neutral, len(news_df))
 
-    # Converting lists to pandas dataframe
-    news_list = pd.DataFrame(news_list)
-    neutral_list = pd.DataFrame(neutral_list)
-    negative_list = pd.DataFrame(negative_list)
-    positive_list = pd.DataFrame(positive_list)
-    # using len(length) function for counting
-    st.write("Positive Sentiment:", '%.2f' % len(positive_list), end='\n')
-    st.write("Neutral Sentiment:", '%.2f' % len(neutral_list), end='\n')
-    st.write("Negative Sentiment:", '%.2f' % len(negative_list), end='\n')
+        # Converting lists to pandas dataframe
+        news_list = pd.DataFrame(news_list)
+        neutral_list = pd.DataFrame(neutral_list)
+        negative_list = pd.DataFrame(negative_list)
+        positive_list = pd.DataFrame(positive_list)
+        # using len(length) function for counting
+        st.write("Positive Sentiment:", '%.2f' % len(positive_list), end='\n')
+        st.write("Neutral Sentiment:", '%.2f' % len(neutral_list), end='\n')
+        st.write("Negative Sentiment:", '%.2f' % len(negative_list), end='\n')
 
     # Creating PieCart
 
