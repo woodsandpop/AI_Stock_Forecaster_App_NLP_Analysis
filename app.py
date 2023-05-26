@@ -124,7 +124,7 @@ if company_name != '':
     fig1, ax1 = plt.subplots()
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.style.use('default')
-    explode = (0,0.1,0)
+    explode = (0,0,0.1)
     plt.legend(labels)
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
