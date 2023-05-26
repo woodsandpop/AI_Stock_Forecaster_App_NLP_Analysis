@@ -123,12 +123,13 @@ if company_name != '':
     colors = ['green', 'blue','red']
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     st.set_option('deprecation.showPyplotGlobalUse', False)
-    plt.legend(labels)
+    
     fig1, ax1 = plt.subplots()
     plt.style.use('default')
     plt.title("Sentiment Analysis Result for the stock "+company_name+"" )
     ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%', startangle=90)
     ax1.axis('equal') 
+    plt.legend(labels)
     st.pyplot(fig1)
 
     # Word cloud visualization
