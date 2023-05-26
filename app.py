@@ -39,7 +39,7 @@ if company_name != '':
     result = googlenews.result()
     #store the results
     df = pd.DataFrame(result)
-    st.write(df.tail())
+    #st.write(df.tail())
 
     try:
         list =[] #creating an empty list 
@@ -113,7 +113,7 @@ if company_name != '':
     negative_list = pd.DataFrame(negative_list)
     positive_list = pd.DataFrame(positive_list)
     #using len(length) function for counting
-    st.write("BUY SIDE:",'%.2f' % len(positive_list), end='\n')
+    st.write("BUY SIDE:",'%.2f+%' len(positive_list), end='\n')
     st.write("NEUTRAL SIDE:", '%.2f' % len(neutral_list), end='\n')
     st.write("SELL SIDE:", '%.2f' % len(negative_list), end='\n')
 
