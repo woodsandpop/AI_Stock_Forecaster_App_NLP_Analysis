@@ -123,7 +123,7 @@ if company_name != '':
     colors = ['green', 'blue','red']
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.style.use('default')
-    explode(0.1,0,0)
+    explode = (0.1,0,0)
     plt.legend(labels)
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
