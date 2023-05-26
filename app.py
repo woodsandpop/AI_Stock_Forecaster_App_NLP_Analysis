@@ -121,14 +121,15 @@ if company_name != '':
     labels = ['BUY ['+str(round(positive))+'%]' , 'THINK ['+str(round(neutral))+'%]','SELL ['+str(round(negative))+'%]']
     sizes = [positive, neutral, negative]
     colors = ['green', 'blue','red']
+    fig1, ax1 = plt.subplots()
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.style.use('default')
-    explode = (0.1,0,0)
+    explode = (0,0.1,0)
     plt.legend(labels)
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
     plt.title("Sentiment Analysis Result for stock= "+company_name+"" )
-    fig1, ax1 = plt.subplots()
+    
     ax1.pie(sizes,explode=explode,labels=labels,colors=colors, autopct='%1.1f%%',shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     st.pyplot(fig1)
