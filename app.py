@@ -23,7 +23,7 @@ config.request_timeout = 10
 
 # Streamlit Dashboard          
 st.set_page_config(page_title ="Woods and Pop Ltd", page_icon =":guardsman:", layout ="centered")
-st.image("logo.jpeg", width = 600)
+st.image("logo.jpeg", width = 400)
 st.title('Woods and Pop Ltd')
 st.header('🔎AI Stock Forecaster App')
 st.subheader("NLP Analysis of the selected Stock based on Latest News Articles")
@@ -123,12 +123,13 @@ if company_name != '':
     colors = ['green', 'blue','red']
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.style.use('default')
+    explode(0.1,0,0)
     plt.legend(labels)
-    plt.title("Sentiment Analysis Result for stock= "+company_name+"" )
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
+    plt.title("Sentiment Analysis Result for stock= "+company_name+"" )
     fig1, ax1 = plt.subplots()
-    ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%',shadow=True, startangle=90)
+    ax1.pie(sizes,explode=explode,labels=labels,colors=colors, autopct='%1.1f%%',shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     st.pyplot(fig1)
 
