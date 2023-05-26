@@ -121,15 +121,14 @@ if company_name != '':
     labels = ['BUY ['+str(round(positive))+'%]' , 'THINK ['+str(round(neutral))+'%]','SELL ['+str(round(negative))+'%]']
     sizes = [positive, neutral, negative]
     colors = ['green', 'blue','red']
-    plt.legend(labels)
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
-    plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
+    plt.legend(labels)
     fig1, ax1 = plt.subplots()
     plt.style.use('default')
     plt.title("Sentiment Analysis Result for the stock "+company_name+"" )
     ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%', startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.axis('equal') 
     st.pyplot(fig1)
 
     # Word cloud visualization
