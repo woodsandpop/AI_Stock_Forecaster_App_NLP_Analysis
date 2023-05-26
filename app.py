@@ -118,7 +118,7 @@ if company_name != '':
     st.write("SELL SIDE:", '%.2f' % len(negative_list), end='\n')
 
     #Creating PieCart
-    labels = ['BUY ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
+    labels = ['BUY ['+str(round(positive))+'%]' , 'THINK ['+str(round(neutral))+'%]','SELL ['+str(round(negative))+'%]']
     sizes = [positive, neutral, negative]
     colors = ['yellowgreen', 'blue','red']
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
