@@ -126,7 +126,7 @@ if company_name != '':
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
     fig1, ax1 = plt.subplots()
-    #plt.style.use('default')
+    plt.style.use('default')
     plt.title("Sentiment Analysis Result for the stock "+company_name+"" )
     ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%', startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
