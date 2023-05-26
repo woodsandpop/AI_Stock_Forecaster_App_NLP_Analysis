@@ -113,12 +113,12 @@ if company_name != '':
     negative_list = pd.DataFrame(negative_list)
     positive_list = pd.DataFrame(positive_list)
     #using len(length) function for counting
-    st.write("Positive Sentiment:", '%.2f' % len(positive_list), end='\n')
-    st.write("Neutral Sentiment:", '%.2f' % len(neutral_list), end='\n')
-    st.write("Negative Sentiment:", '%.2f' % len(negative_list), end='\n')
+    st.write("BUY SIDE:", '%' % len(positive_list), end='\n')
+    st.write("NEUTRAL SIDE:", '%' % len(neutral_list), end='\n')
+    st.write("SELL SIDE:", '%' % len(negative_list), end='\n')
 
     #Creating PieCart
-    labels = ['Positive ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
+    labels = ['BUY ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
     sizes = [positive, neutral, negative]
     colors = ['yellowgreen', 'blue','red']
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
