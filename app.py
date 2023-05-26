@@ -122,7 +122,7 @@ if company_name != '':
     sizes = [positive, neutral, negative]
     colors = ['green', 'blue','red']
     fig1, ax1 = plt.subplots()
-    explode(0.0,0.0,0.0)
+    explode = (0.0,0.0,0.0)
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.style.use('default')
     plt.legend(labels)
