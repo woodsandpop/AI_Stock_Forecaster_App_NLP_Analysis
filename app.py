@@ -139,10 +139,12 @@ if company_name != '':
         allWords = ' '.join([nws for nws in text])
         wordCloud = WordCloud(background_color='black',width = 1600, height = 800,stopwords = stopwords,min_font_size = 20,max_font_size=150,colormap='prism').generate(allWords)
         fig, ax = plt.subplots(figsize=(20,10), facecolor='k')
-        plt.imshow(wordCloud)
+        plt.imshow(wordCloud, interpolation='bilinear'))
         ax.axis("off")
         fig.tight_layout(pad=0)
-        st.plt.show()
+        # Display the generated image:
+        plt.show()
+        st.pyplot()
 
     st.write('Wordcloud for ' + company_name)
     word_cloud(news_df['Summary'].values)
