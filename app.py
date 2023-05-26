@@ -122,13 +122,11 @@ if company_name != '':
     sizes = [positive, neutral, negative]
     colors = ['green', 'blue','red']
     plt.legend(labels)
-    #explode = (0.0,0.0,0.0)
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
     fig1, ax1 = plt.subplots()
     #plt.style.use('default')
-    
     plt.title("Sentiment Analysis Result for the stock "+company_name+"" )
     ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%', startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
