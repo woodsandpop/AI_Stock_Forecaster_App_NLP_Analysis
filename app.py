@@ -123,11 +123,10 @@ if company_name != '':
     colors = ['green', 'blue','red']
     #explode = (0.0,0.0,0.0)
     patches, texts = plt.pie(sizes,colors=colors, startangle=90)
-    
     plt.axis('equal')
     st.set_option('deprecation.showPyplotGlobalUse', False)
     fig1, ax1 = plt.subplots()
-    plt.style.use('default')
+    #plt.style.use('default')
     plt.legend(labels)
     plt.title("Sentiment Analysis Result for the stock "+company_name+"" )
     ax1.pie(sizes,labels=labels,colors=colors, autopct='%1.1f%%', startangle=90)
