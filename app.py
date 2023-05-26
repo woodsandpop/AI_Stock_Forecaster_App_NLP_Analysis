@@ -113,9 +113,9 @@ if company_name != '':
     negative_list = pd.DataFrame(negative_list)
     positive_list = pd.DataFrame(positive_list)
     #using len(length) function for counting
-    st.write("BUY SIDE:", '%' % len(positive_list), end='\n')
-    st.write("NEUTRAL SIDE:", '%' % len(neutral_list), end='\n')
-    st.write("SELL SIDE:", '%' % len(negative_list), end='\n')
+    st.write("BUY SIDE:",'%.2f' % len(positive_list), end='\n')
+    st.write("NEUTRAL SIDE:", '%.2f' % len(neutral_list), end='\n')
+    st.write("SELL SIDE:", '%.2f' % len(negative_list), end='\n')
 
     #Creating PieCart
     labels = ['BUY ['+str(round(positive))+'%]' , 'Neutral ['+str(round(neutral))+'%]','Negative ['+str(round(negative))+'%]']
