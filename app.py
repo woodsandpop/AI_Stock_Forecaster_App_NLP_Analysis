@@ -64,7 +64,7 @@ if company_name != '':
         # print(check_empty)
         if check_empty == False:
           news_df=pd.DataFrame(list) #creating dataframe
-          st.write(news_df.tail())
+          st.write(news_df)
 
     except Exception as e:
         #exception handling
