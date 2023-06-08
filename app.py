@@ -9,7 +9,6 @@ from newspaper import Article
 from newspaper import Config
 from wordcloud import WordCloud, STOPWORDS
 
-
 now = dt.date.today()
 now = now.strftime('%m-%d-%Y')
 yesterday = dt.date.today() - dt.timedelta(days = 1)
