@@ -20,6 +20,7 @@ config = Config()
 config.browser_user_agent = user_agent
 config.request_timeout = 10
 
+
 # Streamlit Dashboard          
 st.set_page_config(page_title ="Woods and Pop Ltd", page_icon =":guardsman:", layout ="centered")
 st.image("logo.jpeg", width = 400)
