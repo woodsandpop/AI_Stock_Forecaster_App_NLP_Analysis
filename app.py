@@ -87,7 +87,7 @@ if company_name != '':
     #Iterating over the tweets in the dataframe
     for news in news_df['Summary']:
         news_list.append(news)
-        analyzer = SentimentIntensityAnalyzer().polarity_scores(news_df)
+        analyzer = SentimentIntensityAnalyzer().polarity_scores(news)
         neg = analyzer['neg']
         neu = analyzer['neu']
         pos = analyzer['pos']
